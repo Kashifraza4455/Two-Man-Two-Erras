@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 function Story() {
   return (
- <section className="story-page">
+    <section className="story-page">
 
       {/* Background Image */}
       <div className="story-page-bg"></div>
 
       {/* Dark Overlay */}
       <div className="story-page-overlay"></div>
+
 
       {/* Content */}
       <div className="story-page-content">
@@ -30,6 +31,7 @@ function Story() {
 
         </div>
 
+
         {/* Right Side */}
         <div className="story-page-right">
 
@@ -45,7 +47,10 @@ function Story() {
             decision has been made.
           </p>
 
-          <Link to="/themes" className="story-discover">
+          <Link
+            to="/themes"
+            className="story-discover"
+          >
             Discover The Themes
             <ArrowRight size={16} />
           </Link>

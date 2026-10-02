@@ -7,13 +7,19 @@ function Home() {
     <>
       <section className="hero">
 
+        {/* Cinematic Background */}
+        <div className="hero-background">
+          <div className="hero-background-image"></div>
+          <div className="hero-background-overlay"></div>
+        </div>
+
         <div className="hero-inner">
 
           <div className="copy">
 
             <div className="eyebrow">
               <i />
-              A NOVEL BY I.M. CHILAF
+              A NOVEL BY I.M. CHALIF
             </div>
 
             <h1>
@@ -50,7 +56,7 @@ function Home() {
 
               <span>
                 <small>AUTHOR</small>
-                <b>I.M. CHILAF</b>
+                <b>I.M. CHALIF</b>
               </span>
 
               <span>
@@ -68,13 +74,11 @@ function Home() {
           </div>
 
 
-          {/* NEW CORRECTED IMAGE */}
-
           <div className="hero-img">
 
             <img
               src="/images/book-promo.png"
-              alt="Two Man Two Erras by I.M. CHILAF"
+              alt="Two Man Two Erras by I.M. CHALIF"
             />
 
             <label>

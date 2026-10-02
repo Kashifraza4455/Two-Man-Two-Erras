@@ -32,7 +32,7 @@ function App() {
 
           <div>
             <div className="brand">
-              I.M <b>CHILAF</b>
+              I.M <b>CHALIF</b>
             </div>
 
             <p>Two Man Two Erras</p>

@@ -23,7 +23,7 @@ function Navbar() {
           className="brand"
           onClick={() => setOpen(false)}
         >
-          I.M <b>CHILAF</b>
+          I.M <b>CHALIF</b>
         </Link>
 
         <nav className={open ? "open" : ""}>

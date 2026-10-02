@@ -111,12 +111,167 @@ nav a:hover,
     color: #fff
 }
 
+/* =========================================================
+   CINEMATIC HERO
+========================================================= */
+
 .hero {
+    position: relative;
     min-height: 100vh;
     padding: 130px 0 70px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, rgba(0, 0, 0, .98), rgba(0, 0, 0, .78) 43%, rgba(0, 0, 0, .32)), radial-gradient(circle at 76% 50%, rgba(190, 20, 30, .12), transparent 31rem)
+    overflow: hidden;
+    background: #050505;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-background-image {
+    position: absolute;
+    inset: -4%;
+    
+    background-image: url("/images/bg.PNG");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+
+    filter:
+        brightness(0.48)
+        contrast(1.18)
+        saturate(0.85);
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   DARK CINEMATIC OVERLAY
+========================================================= */
+
+.hero-background-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #050505 0%,
+            rgba(5, 5, 5, 0.97) 18%,
+            rgba(5, 5, 5, 0.88) 38%,
+            rgba(5, 5, 5, 0.62) 58%,
+            rgba(5, 5, 5, 0.25) 78%,
+            rgba(5, 5, 5, 0.55) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.15) 50%,
+            rgba(0, 0, 0, 0.7)
+        );
+
+}
+
+
+/* =========================================================
+   RED CINEMATIC LIGHT
+========================================================= */
+
+.hero-background::after {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 20, 35, 0.18) 0%,
+            rgba(150, 10, 25, 0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+
+    width: min(1180px, calc(100% - 50px));
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-img {
+    position: relative;
+}
+
+.hero-img img {
+    width: 100%;
+    display: block;
+
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+
+    border: 1px solid #2a1517;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, .85),
+        0 0 60px rgba(150, 10, 20, .08);
+}
+
+
+/* =========================================================
+   IMAGE LABEL
+========================================================= */
+
+.hero-img label {
+    position: absolute;
+
+    right: -15px;
+    bottom: -14px;
+
+    background: #101010;
+
+    border: 1px solid #421417;
+
+    padding: 12px 15px;
+
+    color: #948d87;
+
+    font-size: 8px;
+    letter-spacing: .17em;
 }
 
 .hero-inner {
@@ -1157,14 +1312,10 @@ footer small {
 
 .cinematic-book-image {
   position: absolute;
-
   inset: -5%;
-
-  background-image: url("/images/book-promo.jpg");
-
   background-size: cover;
-
   background-position: center;
+  background-repeat: no-repeat;
 
   filter:
     grayscale(100%)
@@ -1172,8 +1323,9 @@ footer small {
     brightness(0.25);
 
   opacity: 0.38;
-
   transform: scale(1.08);
+
+  transition: transform 0.8s ease;
 }
 
 
@@ -1881,5 +2033,791 @@ footer small {
   .bottom-line {
     width: 25px;
   }
+
+}
+
+/* =========================================================
+   CINEMATIC BOOK PAGE BACKGROUND
+========================================================= */
+
+.book-page {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* BACKGROUND */
+
+.book-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+
+/* BOOK IMAGE */
+
+.book-background-image {
+    position: absolute;
+    inset: -5%;
+
+    background-image: url("/images/bg.PNG");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+
+    filter:
+        brightness(0.32)
+        contrast(1.2)
+        saturate(0.8);
+
+    transform: scale(1.06);
+}
+
+
+/* DARK OVERLAY */
+
+.book-background-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #070707 0%,
+            rgba(7, 7, 7, 0.94) 20%,
+            rgba(7, 7, 7, 0.78) 45%,
+            rgba(7, 7, 7, 0.48) 70%,
+            rgba(7, 7, 7, 0.78) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.15) 50%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+}
+
+
+/* RED CINEMATIC GLOW */
+
+.book-background::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 20, 35, 0.18) 0%,
+            rgba(150, 10, 25, 0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+}
+
+
+/* KEEP CONTENT ABOVE BACKGROUND */
+
+.book-page > .label,
+.book-page > .grid {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* BOOK IMAGE CARD */
+
+.book-page .picture {
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.75),
+        0 0 50px rgba(150, 10, 20, 0.08);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .book-background-image {
+        background-position: 65% center;
+    }
+
+    .book-background-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(7, 7, 7, 0.96) 0%,
+                rgba(7, 7, 7, 0.82) 45%,
+                rgba(7, 7, 7, 0.94) 100%
+            );
+    }
+
+}
+
+/* =========================================================
+   STORY PAGE — CINEMATIC BACKGROUND
+========================================================= */
+
+.story-page {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.story-page-bg {
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/images/bg.PNG");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter:
+        brightness(0.38)
+        contrast(1.18)
+        saturate(0.85);
+
+    transform: scale(1.04);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   DARK CINEMATIC OVERLAY
+========================================================= */
+
+.story-page-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.98) 0%,
+            rgba(5, 5, 5, 0.92) 25%,
+            rgba(5, 5, 5, 0.72) 48%,
+            rgba(5, 5, 5, 0.48) 70%,
+            rgba(5, 5, 5, 0.78) 100%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.1) 45%,
+            rgba(0, 0, 0, 0.78) 100%
+        );
+}
+
+
+/* =========================================================
+   RED CINEMATIC GLOW
+========================================================= */
+
+.story-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -200px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 20, 35, 0.18) 0%,
+            rgba(150, 10, 25, 0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.story-page-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(1080px, calc(100% - 50px));
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    padding: 130px 0 100px;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.story-page-left {
+    position: relative;
+}
+
+
+.story-page-left .label {
+    margin-bottom: 65px;
+
+    color: #e21c27;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.28em;
+}
+
+
+.story-page-left h1 {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(55px, 6vw, 82px);
+
+    line-height: 0.92;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+
+    color: #f1ece7;
+}
+
+
+.story-page-left h1 em {
+    color: #e21c27;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   LEFT DECORATIVE LINE
+========================================================= */
+
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.story-page-right {
+    max-width: 500px;
+
+    padding-left: 35px;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.story-page-right p {
+    margin: 0 0 25px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+.story-page-right strong {
+    color: rgba(255, 255, 255, 0.9);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DISCOVER BUTTON
+========================================================= */
+
+.story-discover {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    color: #d8d1ca;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+}
+
+
+.story-discover svg {
+    color: #e21c27;
+
+    transition: transform 0.3s ease;
+}
+
+
+.story-discover:hover {
+    color: #ffffff;
+
+    gap: 13px;
+}
+
+
+.story-discover:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .story-page {
+        min-height: 100vh;
+    }
+
+
+    .story-page-bg {
+        background-position: 62% center;
+    }
+
+
+    .story-page-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 5, 5, 0.96) 0%,
+                rgba(5, 5, 5, 0.78) 45%,
+                rgba(5, 5, 5, 0.95) 100%
+            );
+    }
+
+
+    .story-page-content {
+        width: calc(100% - 34px);
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+
+        padding: 125px 0 80px;
+    }
+
+
+    .story-page-left .label {
+        margin-bottom: 40px;
+    }
+
+
+    .story-page-left h1 {
+        font-size: clamp(48px, 14vw, 68px);
+    }
+
+
+    .story-page-left::before {
+        left: 0;
+        top: -20px;
+        width: 30px;
+    }
+
+
+    .story-page-right {
+        padding-left: 20px;
+
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+
+    .story-page-right p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
+}
+
+/* =========================================================
+   AUTHOR PAGE BACKGROUND
+========================================================= */
+
+.author-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* BACKGROUND IMAGE */
+
+.author-page-bg {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter:
+        grayscale(100%)
+        contrast(1.15)
+        brightness(0.28);
+
+    opacity: 0.45;
+
+    transform: scale(1.05);
+
+    z-index: 0;
+}
+
+
+/* DARK OVERLAY */
+
+.author-page-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.97) 0%,
+            rgba(5, 5, 5, 0.88) 40%,
+            rgba(5, 5, 5, 0.65) 70%,
+            rgba(5, 5, 5, 0.9) 100%
+        );
+
+    z-index: 1;
+}
+
+
+/* RED LIGHT */
+
+.author-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 20, 35, 0.18),
+            rgba(150, 10, 25, 0.07) 40%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* CONTENT ABOVE BACKGROUND */
+
+.author-page .section {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* AUTHOR CONTENT */
+
+.author-content {
+    position: relative;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .author-page-bg {
+        background-position: center;
+    }
+
+    .author-page-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 5, 5, 0.96),
+                rgba(5, 5, 5, 0.72) 50%,
+                rgba(5, 5, 5, 0.96)
+            );
+    }
+
+    .author-page::after {
+        width: 400px;
+        height: 400px;
+        right: -180px;
+    }
+
+}
+
+/* =========================================================
+   CONTACT PAGE BACKGROUND
+========================================================= */
+
+.contact-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #050505;
+}
+
+
+/* BACKGROUND IMAGE */
+
+.contact-page-bg {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter:
+        grayscale(100%)
+        contrast(1.2)
+        brightness(0.3);
+
+    opacity: 0.42;
+
+    transform: scale(1.05);
+
+    z-index: 0;
+}
+
+
+/* DARK OVERLAY */
+
+.contact-page-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.98) 0%,
+            rgba(5, 5, 5, 0.9) 38%,
+            rgba(5, 5, 5, 0.65) 68%,
+            rgba(5, 5, 5, 0.88) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.15) 45%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+}
+
+
+/* RED CINEMATIC LIGHT */
+
+.contact-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -220px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 20, 35, 0.2) 0%,
+            rgba(150, 10, 25, 0.08) 38%,
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* CONTENT ABOVE BACKGROUND */
+
+.contact-page-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(1080px, calc(100% - 50px));
+
+    margin: auto;
+
+    padding: 115px 0;
+
+}
+
+
+/* LABEL */
+
+.contact-page-content > .label {
+    margin-bottom: 40px;
+}
+
+
+/* CONTACT GRID */
+
+.contact-page-content .contact-grid {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* FORM GLASS EFFECT */
+
+.contact-page-content form {
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 20, 20, 0.72),
+            rgba(8, 8, 8, 0.55)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+
+/* SOCIAL ICONS */
+
+.contact-page .social a {
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.contact-page .social a:hover {
+    color: #ffffff;
+
+    border-color: #c9183e;
+
+    background: rgba(201, 24, 62, 0.12);
+
+    transform: translateY(-4px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .contact-page-bg {
+        background-position: center;
+    }
+
+
+    .contact-page-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 5, 5, 0.97) 0%,
+                rgba(5, 5, 5, 0.75) 48%,
+                rgba(5, 5, 5, 0.96) 100%
+            );
+    }
+
+
+    .contact-page-content {
+        width: calc(100% - 34px);
+
+        padding: 105px 0 75px;
+    }
+
+
+    .contact-page-content > .label {
+        margin-bottom: 35px;
+    }
+
+
+    .contact-page-content form {
+        padding: 22px;
+    }
 
 }

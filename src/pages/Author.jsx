@@ -4,38 +4,50 @@ function Author() {
   return (
     <section className="author author-page">
 
+      {/* Background Image */}
+      <div
+        className="author-page-bg"
+        style={{
+          backgroundImage: "url('/images/book-promo.png')",
+        }}
+      ></div>
+
+      {/* Dark Overlay */}
+      <div className="author-page-overlay"></div>
+
+
       <div className="section author-grid">
 
         <div className="author-img">
 
-          {/* NEW CORRECTED IMAGE */}
+          {/* BOOK IMAGE */}
 
           <img
             src="/images/book-promo.png"
-            alt="I.M. CHILAF"
+            alt="I.M. CHALIF"
           />
 
           <b>
             I.M
             <br />
-            <span>CHILAF</span>
+            <span>CHALIF</span>
           </b>
 
         </div>
 
 
-        <div>
+        <div className="author-content">
 
           <div className="label">
             — THE AUTHOR
           </div>
 
           <h2>
-            I.M. <em>CHILAF</em>
+            I.M. <em>CHALIF</em>
           </h2>
 
           <p className="intro">
-            A storyteller with a vision, I.M. CHILAF
+            A storyteller with a vision, I.M. CHALIF
             crafts powerful narratives that explore
             the human mind, choices, and the paths
             we take.
@@ -48,7 +60,7 @@ function Author() {
           </p>
 
           <div className="signature">
-            I.M. CHILAF
+            I.M. CHALIF
           </div>
 
         </div>

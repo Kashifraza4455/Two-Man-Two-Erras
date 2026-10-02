@@ -6,19 +6,27 @@ function Book() {
   return (
     <section className="section book-page">
 
+      {/* CINEMATIC BACKGROUND */}
+      <div className="book-background">
+        <div className="book-background-image"></div>
+        <div className="book-background-overlay"></div>
+      </div>
+
+
       <div className="label">
         — THE BOOK
       </div>
 
+
       <div className="grid book">
 
-        {/* NEW CORRECTED IMAGE */}
+        {/* BOOK IMAGE */}
 
         <div className="picture">
 
           <img
             src="/images/book-promo.png"
-            alt="Two Man Two Erras by I.M. CHILAF"
+            alt="Two Man Two Erras by I.M. CHALIF"
           />
 
           <span>

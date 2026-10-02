@@ -4,9 +4,16 @@ function Themes() {
   return (
     <section className="cinematic-themes">
 
+      {/* BACKGROUND */}
       <div className="cinematic-themes-bg">
 
-        <div className="cinematic-book-image"></div>
+        {/* NEW BOOK IMAGE */}
+        <div
+          className="cinematic-book-image"
+          style={{
+            backgroundImage: "url('/images/book-promo.png')",
+          }}
+        ></div>
 
         <div className="cinematic-red-light"></div>
 
@@ -15,11 +22,12 @@ function Themes() {
       </div>
 
 
+      {/* HEADER */}
       <div className="cinematic-themes-header">
 
         <div className="cinematic-label">
           <span></span>
-        THE THEMES
+          THE THEMES
         </div>
 
         <p>
@@ -29,8 +37,10 @@ function Themes() {
       </div>
 
 
+      {/* MAIN CONTENT */}
       <div className="cinematic-themes-content">
 
+        {/* LEFT */}
         <div className="cinematic-themes-left">
 
           <div className="cinematic-big-number">
@@ -44,6 +54,7 @@ function Themes() {
         </div>
 
 
+        {/* CENTER */}
         <div className="cinematic-themes-center">
 
           <div className="cinematic-center-line"></div>
@@ -66,8 +77,10 @@ function Themes() {
         </div>
 
 
+        {/* THEMES LIST */}
         <div className="cinematic-themes-list">
 
+          {/* FRIENDSHIP */}
           <div className="cinematic-theme-item active">
 
             <span className="theme-index">
@@ -75,6 +88,7 @@ function Themes() {
             </span>
 
             <div>
+
               <span className="theme-kicker">
                 THE BOND
               </span>
@@ -86,6 +100,7 @@ function Themes() {
               <p>
                 The bond that begins everything.
               </p>
+
             </div>
 
             <span className="theme-arrow">
@@ -95,6 +110,7 @@ function Themes() {
           </div>
 
 
+          {/* AMBITION */}
           <div className="cinematic-theme-item">
 
             <span className="theme-index">
@@ -102,6 +118,7 @@ function Themes() {
             </span>
 
             <div>
+
               <span className="theme-kicker">
                 THE HUNGER
               </span>
@@ -113,6 +130,7 @@ function Themes() {
               <p>
                 The desire to become more.
               </p>
+
             </div>
 
             <span className="theme-arrow">
@@ -122,6 +140,7 @@ function Themes() {
           </div>
 
 
+          {/* BETRAYAL */}
           <div className="cinematic-theme-item">
 
             <span className="theme-index">
@@ -129,6 +148,7 @@ function Themes() {
             </span>
 
             <div>
+
               <span className="theme-kicker">
                 THE BREAK
               </span>
@@ -140,6 +160,7 @@ function Themes() {
               <p>
                 When trust becomes a weapon.
               </p>
+
             </div>
 
             <span className="theme-arrow">
@@ -149,6 +170,7 @@ function Themes() {
           </div>
 
 
+          {/* CONSEQUENCES */}
           <div className="cinematic-theme-item">
 
             <span className="theme-index">
@@ -156,6 +178,7 @@ function Themes() {
             </span>
 
             <div>
+
               <span className="theme-kicker">
                 THE PRICE
               </span>
@@ -167,6 +190,7 @@ function Themes() {
               <p>
                 Every choice leaves something behind.
               </p>
+
             </div>
 
             <span className="theme-arrow">
@@ -180,6 +204,7 @@ function Themes() {
       </div>
 
 
+      {/* BOTTOM */}
       <div className="cinematic-themes-bottom">
 
         <div className="bottom-word">
