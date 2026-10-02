@@ -52,11 +52,12 @@ header {
     background: transparent;
     color: #f6f0ea;
     font: 600 25px 'Cormorant Garamond', serif;
-    letter-spacing: .08em
+    letter-spacing: .08em;
+    text-decoration: none !important;
 }
 
 .brand b {
-    color: #e31c27
+    color: #e31c27;
 }
 
 nav {
@@ -66,27 +67,42 @@ nav {
 }
 
 nav button,
+nav a,
 .link {
     cursor: pointer;
     background: transparent;
     color: #aaa39d;
-    font-size: 11px
+    font-size: 11px;
+    text-decoration: none;
+    border: 0;
+    font-family: inherit;
 }
 
 nav button:hover,
+nav a:hover,
 .link:hover {
-    color: #e21c27
+    color: #e21c27;
+    text-decoration: none;
 }
 
 .cta {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px !important;
     padding: 11px 15px;
     color: #fff !important;
     background: #b9151f !important;
     border: 1px solid #d41a24 !important;
-    border-radius: 3px
+    border-radius: 3px;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.cta:hover {
+    color: #fff !important;
+    background: #d51b27 !important;
+    text-decoration: none !important;
 }
 
 .menu {
@@ -160,21 +176,23 @@ nav button:hover,
     align-items: center
 }
 
-.primary,
-.outline {
+.primary,.outline {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 9px;
     padding: 14px 20px;
-    color: #fff;
+    color: #fff !important;
     background: #c01721;
     border-radius: 3px;
-    box-shadow: 0 12px 30px rgba(192, 23, 33, .16)
+    box-shadow: 0 12px 30px rgba(192, 23, 33, .16);
+    text-decoration: none !important;
 }
 
 .primary:hover {
-    background: #e21c27
+    background: #e21c27;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
 .meta {
@@ -350,32 +368,340 @@ nav button:hover,
     border-color: #d31b25
 }
 
-.story {
+/* =========================================================
+   STORY PAGE
+========================================================= */
+
+.story-page {
     position: relative;
-    min-height: 580px;
+    min-height: calc(100vh - 74px);
+    margin-top: 74px;
     display: flex;
     align-items: center;
-    background: #090909
+    overflow: hidden;
+    background: #050505;
+    color: #fff;
 }
 
-.story-bg {
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.story-page-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #080808 10%, rgba(8, 8, 8, .9) 45%, rgba(8, 8, 8, .35)), url('/images/book-promo.jpg') center/cover;
-    opacity: .48
+    background-image: url("/images/book-promo.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
+
+    filter:
+        brightness(0.65)
+        contrast(1.08);
+
+    z-index: 0;
 }
 
-.story-inner {
+
+/* =========================================================
+   DARK CINEMATIC OVERLAY
+========================================================= */
+
+.story-page-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 3, 3, 0.96) 0%,
+            rgba(3, 3, 3, 0.88) 30%,
+            rgba(3, 3, 3, 0.63) 53%,
+            rgba(3, 3, 3, 0.48) 72%,
+            rgba(3, 3, 3, 0.70) 100%
+        );
+
+    z-index: 1;
+}
+
+
+/* Extra dark effect at bottom */
+
+.story-page-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.55),
+            transparent 35%,
+            rgba(0, 0, 0, 0.18)
+        );
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.story-page-content {
     position: relative;
-    z-index: 1
-}
+    z-index: 2;
 
-.story-grid {
+    width: min(1180px, calc(100% - 50px));
+    min-height: 650px;
+
+    margin: 0 auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
     gap: 90px;
-    margin-top: 35px;
-    align-items: center
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.story-page-left {
+    padding-top: 20px;
+}
+
+.story-page-left .label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 65px;
+
+    color: #e21c27;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.story-page-left .label::before {
+    content: "";
+
+    width: 35px;
+    height: 1px;
+
+    background: #e21c27;
+}
+
+
+.story-page-left h1 {
+    margin: 0;
+
+    color: #f2eee9;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: clamp(58px, 6vw, 86px);
+
+    font-weight: 600;
+
+    line-height: 0.92;
+
+    letter-spacing: -3px;
+}
+
+
+.story-page-left h1 em {
+    color: #e21c27;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   RIGHT
+========================================================= */
+
+.story-page-right {
+    max-width: 500px;
+
+    padding-left: 20px;
+
+    margin-top: 70px;
+}
+
+
+.story-page-right p {
+    margin: 0 0 22px;
+
+    color: rgba(235, 231, 226, 0.68);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+
+.story-page-right p strong {
+    color: #f0ebe5;
+
+    font-weight: 600;
+}
+
+
+.story-discover {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 12px;
+
+    color: #d8d1ca;
+
+    font-size: 11px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+}
+
+
+.story-discover:hover {
+    color: #e21c27;
+
+    gap: 14px;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   RED LIGHT EFFECT
+========================================================= */
+
+.story-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -250px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(190, 20, 30, 0.14) 0%,
+            rgba(150, 10, 20, 0.06) 35%,
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .story-page-content {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 90px 0;
+    }
+
+    .story-page {
+        min-height: auto;
+    }
+
+    .story-page-left .label {
+        margin-bottom: 35px;
+    }
+
+    .story-page-right {
+        margin-top: 0;
+        padding-left: 0;
+        max-width: 600px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .story-page {
+        margin-top: 74px;
+    }
+
+    .story-page-bg {
+        background-position: 58% center;
+
+        filter:
+            brightness(0.48)
+            contrast(1.05);
+    }
+
+    .story-page-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3, 3, 3, 0.82),
+                rgba(3, 3, 3, 0.94)
+            );
+    }
+
+    .story-page-content {
+        width: calc(100% - 34px);
+
+        min-height: auto;
+
+        padding: 90px 0 100px;
+
+        gap: 50px;
+    }
+
+    .story-page-left h1 {
+        font-size: clamp(50px, 15vw, 70px);
+
+        letter-spacing: -2px;
+    }
+
+    .story-page-left .label {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .story-page-right p {
+        font-size: 13px;
+
+        line-height: 1.8;
+    }
+
 }
 
 .story-grid>div {
@@ -639,16 +965,22 @@ footer small {
     gap: 11px 25px
 }
 
+.footer-links a,
 .footer-links button {
     background: transparent;
     color: #777;
     cursor: pointer;
     text-align: left;
-    font-size: 10px
+    font-size: 10px;
+    text-decoration: none;
+    border: 0;
+    font-family: inherit;
 }
 
+.footer-links a:hover,
 .footer-links button:hover {
-    color: #e21c27
+    color: #e21c27;
+    text-decoration: none;
 }
 
 @media(max-width:950px) {
