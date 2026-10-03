@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -6,14 +6,17 @@ import {
   Mail,
   User,
   Facebook,
-  Twitter
+  Twitter,
+  X,
 } from "lucide-react";
 
 function Contact() {
+  const [formClosed, setFormClosed] = useState(false);
+
   return (
     <section className="section contact contact-page">
 
-      {/* Background Image */}
+      {/* BACKGROUND */}
       <div
         className="contact-page-bg"
         style={{
@@ -21,22 +24,28 @@ function Contact() {
         }}
       ></div>
 
-      {/* Dark Overlay */}
       <div className="contact-page-overlay"></div>
 
 
+      {/* CONTENT */}
       <div className="contact-page-content">
-
-        <div className="label">
-          — GET IN TOUCH
-        </div>
-
 
         <div className="contact-grid">
 
-          {/* LEFT SIDE */}
+          {/* =====================================
+              LEFT CONTENT
+              HIDDEN WHEN PAGE OPENS
+          ===================================== */}
 
-          <div>
+          <div
+            className={`contact-left-content ${
+              formClosed ? "contact-content-show" : ""
+            }`}
+          >
+
+            <div className="label">
+              — GET IN TOUCH
+            </div>
 
             <h2>
               Have questions?
@@ -71,11 +80,8 @@ function Contact() {
             </div>
 
 
-            {/* SOCIAL ICONS */}
-
             <div className="social">
 
-              {/* Email */}
               <a
                 href="mailto:hello@imchilaf.com"
                 aria-label="Email"
@@ -83,30 +89,15 @@ function Contact() {
                 <Mail />
               </a>
 
-
-              {/* Instagram */}
-              <a
-                href="#"
-                aria-label="Instagram"
-              >
+              <a href="#" aria-label="Instagram">
                 <Instagram />
               </a>
 
-
-              {/* Facebook */}
-              <a
-                href="#"
-                aria-label="Facebook"
-              >
+              <a href="#" aria-label="Facebook">
                 <Facebook />
               </a>
 
-
-              {/* Twitter / X */}
-              <a
-                href="#"
-                aria-label="Twitter"
-              >
+              <a href="#" aria-label="Twitter">
                 <Twitter />
               </a>
 
@@ -115,47 +106,72 @@ function Contact() {
           </div>
 
 
-          {/* RIGHT SIDE — FORM */}
+          {/* =====================================
+              CONTACT FORM
+          ===================================== */}
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
+          <div
+            className={`contact-form-wrapper ${
+              formClosed
+                ? "contact-form-return"
+                : "contact-form-popup"
+            }`}
           >
 
-            <label>
-              Your Name
-
-              <input
-                placeholder="Enter your name"
-              />
-            </label>
-
-
-            <label>
-              Your Email
-
-              <input
-                type="email"
-                placeholder="Enter your email"
-              />
-            </label>
+            {/* CLOSE BUTTON */}
+            {!formClosed && (
+              <button
+                type="button"
+                className="contact-close-button"
+                onClick={() => setFormClosed(true)}
+                aria-label="Close contact popup"
+              >
+                <X size={19} />
+              </button>
+            )}
 
 
-            <label>
-              Your Message
+            <form
+              onSubmit={(e) => e.preventDefault()}
+            >
 
-              <textarea
-                rows="5"
-                placeholder="Write your message..."
-              />
-            </label>
+              <label>
+                Your Name
+
+                <input
+                  placeholder="Enter your name"
+                />
+              </label>
 
 
-            <button className="primary">
-              Send Message
-              <ArrowRight size={17} />
-            </button>
+              <label>
+                Your Email
 
-          </form>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </label>
+
+
+              <label>
+                Your Message
+
+                <textarea
+                  rows="5"
+                  placeholder="Write your message..."
+                />
+              </label>
+
+
+              <button className="primary">
+                Send Message
+                <ArrowRight size={17} />
+              </button>
+
+            </form>
+
+          </div>
 
         </div>
 
